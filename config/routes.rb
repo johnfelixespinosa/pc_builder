@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   
-  resources :parts_lists
   devise_for :users
   root to: 'home#index'
 
-  resources :users
-
+  resources :parts_lists
+  
+  resources :users do 
+    resources :parts_lists, only: [:show, :index, :new,]
+  end
 end
