@@ -6,24 +6,11 @@
 
   <% if user_signed_in? %>
 
-    <% if user_has_battlestation? %>
-
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="nav navbar-nav">
-          <li><%= link_to "My Dashboard", user_battlestations_path(current_user) %></li>
-          <li><%= link_to "Explore", battlestations_path %></li>
+          <li><%= link_to "My Dashboard", root_path %></li>
+          <li><%= link_to "Explore", root_path %></li>
         </ul>
-
-    <% else %>
-
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="nav navbar-nav">
-          <li><%= link_to "Add New", new_user_battlestation_path(current_user) %></li>
-          <li><%= link_to "Explore", battlestations_path %></li>
-        </ul>
-
-    <% end %>
-
         <ul class="nav navbar-nav navbar-right">
           <li><%= notice %></li>
           <li><%= alert %></li>
@@ -36,7 +23,7 @@
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Explore", battlestations_path %></li>
+        <li><%= link_to "Explore", root_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><%= notice %></li>
