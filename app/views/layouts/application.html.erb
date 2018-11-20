@@ -10,6 +10,25 @@
   </head>
 
   <body>
+
+  <%= render 'layouts/navigation' %>
+
+      <% if flash[:message] %>
+      <div class="alert alert-danger text-center"> <%= flash[:message] %></div>
+      <% end %>
+      </div>
+
+      <% if flash[:success] %>
+      <div class="alert alert-success text-center"> <%= flash[:success] %></div>
+      <% end %>
+      </div>
+
+  <div class="container">
     <%= yield %>
+  </div>
+  
+  <%= render 'layouts/footer' %>
+  
+   
   </body>
 </html>
