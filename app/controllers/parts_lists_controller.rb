@@ -3,6 +3,14 @@ class PartsListsController < ApplicationController
   before_action :find_list, only: [:show, :edit, :update, :destroy]
 
   def index
+    if params[:user_id]
+      @parts_lists = User.find(params[:user_id]).parts_lists
+    else
+      @parts_lists = PartsList.all
+    end
+  end
+
+  def show
   end
 
   def new
@@ -13,14 +21,28 @@ class PartsListsController < ApplicationController
     @parts_list = current_user.parts_lists.build(parts_list_params)
     if @parts_list.save
       flash[:success] = "Parts List Added!"
-      redirect_to user_parts_list_path(@parts_list)
+      redirect_to user_parts_lists_path(current_user)
     else
       flash.now[:message] = "<strong>Please try again. There were some errors:</strong><br>"
       render :new
     end
   end
 
-  def show
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+    if @parts_list.user == current_user
+      @parts_list.delete
+      flash[:success] = "List deleted!"
+      redirect_to user_parts_lists_path(current_user)
+    else
+      flash.now[:message] = "You don't have permision to do that!"
+      redirect_to root_path
+    end
   end
 
   private
