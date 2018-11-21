@@ -1,79 +1,9 @@
 <div class="container">
 
   <% if !user_has_parts %>
-
-    <div class="jumbotron text-center">
-      <h1 class="display-4">Oops! No lists found...</h1>
-      <p class="lead">In order to add your PC builds, you must have parts lists.</p>
-      <hr class="my-4">
-      <p>Add your first list here</p>
-      <%= link_to "Get Started", new_user_parts_list_path, class: "btn btn-primary btn-lg" %>
-    </div>
-
+    <%= render 'jumbotron' %>
   <% else %>
-    
-    <%= link_to "Add New Parts List", new_user_parts_list_path, class: "btn btn-primary btn-lg" %>
-    <%= link_to "Start A New Build", new_user_parts_list_path, class: "btn btn-primary btn-lg" %>
-    
-      <h1 class="display-4 text-xs-center m-y-3 text-muted">Your Parts Lists</h1>
-
-      <% @parts_lists.each_slice(3) do |parts_lists| %>        
-        <div class="card-deck ">
-          <% parts_lists.each do |pl| %>
-            <div class="card bg-dark text-white">
-              <div class="card-header text-center">
-                <%= pl.name %>
-              </div>
-              <div class="card-body">
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <span class="label label-default">CPU</span>
-                    <label><%= pl.cpu %></label>
-                  </li>
-                  <li class="list-group-item">
-                    <span class="label label-default">Cooler</span>
-                    <label><%= pl.cpu_cooler %></label>
-                  </li>
-                  <li class="list-group-item">
-                    <span class="label label-default">Motherboard</span>
-                    <label><%= pl.motherboard %></label>
-                  </li>
-                  <li class="list-group-item">
-                    <span class="label label-default">Storage</span>
-                    <label><%= pl.storage %></label>
-                  </li>
-                  <li class="list-group-item">
-                    <span class="label label-default">Video Card</span>
-                    <label><%= pl.video_card %></label>
-                  </li>
-                  <li class="list-group-item">
-                    <span class="label label-default">Case</span>
-                    <label><%= pl.case %></label>
-                  </li>
-                  <li class="list-group-item">
-                    <span class="label label-default">Power Supply</span>
-                    <label><%= pl.power_supply %></label>
-                  </li>
-                  <li class="list-group-item">
-                    <span class="label label-default">OS</span>
-                    <label><%= pl.operating_system %></label>
-                  </li>
-                  <li class="list-group-item">
-                    <span class="label label-default">Monitor</span>
-                    <label><%= pl.monitor %></label>
-                  </li>
-                </ul>
-              </div>
-              <div class="card-footer bg-transparent border-success text-center">
-                <small class="text-muted">Last updated <%= pl.created_at.to_date %></small>
-                <%= link_to "Edit List", edit_user_parts_list_path(current_user, pl), class: 'btn btn-primary btn-block' %>
-                <%= link_to "Delete List", pl, method: :delete, data: { confirm: "Are you sure you want to delete?" }, class: 'btn btn-danger btn-block offset-2' %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-
+    <%= render 'parts_list_deck' %>
   <% end %>
 
 </div>
