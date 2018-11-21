@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6">
+      <div class="form-group">
+        <%= form_for @parts_list do |f| %>
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %><br>
+          <%= f.label :cpu %>
+          <%= f.text_field :cpu, class: "form-control" %><br>
+          <%= f.label :cpu_cooler %>
+          <%= f.text_field :cpu_cooler, class: "form-control" %><br>
+          <%= f.label :motherboard %>
+          <%= f.text_field :motherboard, class: "form-control" %><br>
+          <%= f.label :storage %>
+          <%= f.text_field :storage, class: "form-control" %><br>
+          <%= f.label :video_card %>
+          <%= f.text_field :video_card, class: "form-control" %><br>
+          <%= f.label :case %>
+          <%= f.text_field :case, class: "form-control" %><br>
+          <%= f.label :power_supply %>
+          <%= f.text_field :power_supply, class: "form-control" %><br>
+          <%= f.label :operating_system %>
+          <%= f.text_field :operating_system, class: "form-control" %><br>
+          <%= f.label :monitor %>
+          <%= f.text_field :monitor, class: "form-control" %><br>
+
+          <%= f.submit class: 'btn btn-primary btn-block' %>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
