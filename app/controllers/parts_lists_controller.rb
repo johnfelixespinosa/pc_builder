@@ -3,6 +3,7 @@ class PartsListsController < ApplicationController
   before_action :find_list, only: [:show, :edit, :update, :destroy]
 
   def index
+    @user = User.find_by(id: params[:user_id])
     if params[:user_id]
       @parts_lists = User.find(params[:user_id]).parts_lists
     else
