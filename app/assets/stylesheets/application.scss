@@ -14,3 +14,9 @@
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+.form-horizontal{
+  display:block;
+  width:50%;
+  margin:0 auto;
+}
