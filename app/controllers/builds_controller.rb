@@ -3,6 +3,7 @@ class BuildsController < ApplicationController
   before_action :find_list, only: [:show, :edit, :update, :destroy]
 
   def index
+    @build = Build.all
   end
 
   def show
