@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
     !current_user.parts_lists.empty?
   end
 
+  def list_belongs_to_current_user?
+    pl.user == current_user
+  end
+
+
   protected
 
     def configure_permitted_parameters
