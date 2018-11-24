@@ -4,10 +4,16 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :parts_lists
-  resources :builds
+
+  resources :builds, except: [:index] do
+    get :index, on: :collection, :action => 'index_all'
+  end
 
   resources :users do 
     resources :parts_lists, only: [:show, :index, :new, :edit, :update, :destroy]
-    resources :builds
+    resources :builds, except: [:index] do
+      get :index, on: :collection, :action => 'index_builds'
+    end
   end
+
 end

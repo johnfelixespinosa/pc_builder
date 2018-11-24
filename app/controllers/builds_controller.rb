@@ -2,8 +2,14 @@ class BuildsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_list, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @build = Build.all
+  def index_all
+    @builds = Build.all
+    render :all # or something else
+  end
+  
+  def index_builds
+    @builds = Build.find_by(id: params[:id])
+    render :index # or something else
   end
 
   def show

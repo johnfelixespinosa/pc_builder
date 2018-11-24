@@ -10,6 +10,9 @@
             <%= link_to "My Parts Lists", user_parts_lists_path(current_user), class: "nav-link" %>
           </li>
           <li class="nav-item">
+            <%= link_to "My Builds", user_builds_path(current_user), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
             <%= link_to "Explore Builds", builds_path, class: "nav-link" %>
           </li>
         </ul>
