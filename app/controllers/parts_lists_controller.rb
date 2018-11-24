@@ -24,7 +24,7 @@ class PartsListsController < ApplicationController
       flash[:success] = "Parts List Added!"
       redirect_to user_parts_lists_path(current_user)
     else
-      flash.now[:message] = "<strong>Please try again. There were some errors:</strong><br>"
+      flash.now[:message] = "Please try again. There were some errors:"
       render :new
     end
   end
@@ -33,6 +33,19 @@ class PartsListsController < ApplicationController
   end
 
   def update
+    if @parts_list.user == current_user
+      @parts_list.update(parts_list_params)
+      if @parts_list.save
+        flash[:success] = "Your list #{@parts_list.name} was successfully updated!"
+        redirect_to user_parts_lists_path(current_user)
+      else
+        flash.now[:message] = "Please try again. There were some errors:"
+        render :new
+      end
+    else
+      flash[:message] = "You don't have permission to do that"
+      redirect_to root_path
+    end
   end
 
   def destroy
