@@ -1,1 +1,9 @@
-<%= current_user.username %> builds
+<div class="container">
+
+  <% if !user_has_builds %>
+    <%= render 'builds_jumbotron' %>
+  <% else %>
+    <%= render 'builds_deck' %>
+  <% end %>
+
+</div>
