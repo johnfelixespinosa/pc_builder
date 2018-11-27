@@ -7,12 +7,12 @@ class User < ApplicationRecord
   has_many :parts_lists
   has_many :builds
 
-  def has_parts
+  def has_parts?
     !parts_lists.empty?
   end
 
-  def has_builds
+  def has_builds?
     !builds.empty?
   end
-  
+
 end
