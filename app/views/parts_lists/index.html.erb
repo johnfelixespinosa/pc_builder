@@ -1,6 +1,6 @@
 <div class="container">
 
-  <% if !user_has_parts %>
+  <% if !current_user.has_parts %>
     <%= render 'jumbotron' %>
   <% else %>
     <%= render 'parts_list_deck' %>
