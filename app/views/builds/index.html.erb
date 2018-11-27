@@ -1,8 +1,12 @@
 <div class="container">
 
-  <% if !user_has_builds %>
+  <% if !user_has_parts %>
+    <%= render 'parts_lists/jumbotron'%>
+
+  <% elsif !user_has_builds %>
     <%= render 'builds_jumbotron' %>
-  <% else %>
+
+  <% elsif %>
     <%= render 'builds_deck' %>
   <% end %>
 
