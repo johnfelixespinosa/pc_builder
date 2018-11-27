@@ -1,6 +1,7 @@
 <nav class="navbar justify-content-end">
     <h3 class="text-xs-center m-y-3 text-muted"><%= @user.username.capitalize %> Parts List's</h3>    
     <%= link_to "Add New", new_user_parts_list_path(current_user), class: 'btn btn-success ml-auto mr-2 font-weight-bold' %>
+    <%= link_to "Start A New Build", new_user_build_path(current_user), class: 'btn btn-info mr-2 font-weight-bold' %>
 </nav>
 
 <% @parts_lists.each_slice(3) do |parts_lists| %>       
