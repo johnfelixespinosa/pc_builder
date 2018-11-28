@@ -9,6 +9,7 @@ class BuildsController < ApplicationController
   end
   
   def index_builds
+    @user = User.find_by(id: params[:user_id])
     @builds = Build.find_by(id: params[:id])
     render :index
   end
