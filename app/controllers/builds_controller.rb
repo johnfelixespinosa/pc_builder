@@ -20,6 +20,13 @@ class BuildsController < ApplicationController
   end
 
   def create
+    @build = Build.new(build_params)
+    if @build.save
+      current_user.builds << @build
+      redirect_to user_builds_path(current_user)
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -37,6 +44,7 @@ class BuildsController < ApplicationController
       params.require(:build).permit(
         :title,
         :description,
+        :parts_list_id,
         images: []
       )
     end

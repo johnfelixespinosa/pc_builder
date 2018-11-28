@@ -1,0 +1,7 @@
+<nav class="navbar justify-content-end">
+    <h3 class="text-xs-center m-y-3 text-muted"><%= current_user.username.capitalize %> Build's</h3>    
+</nav>
+<% current_user.builds.each do |b| %>
+<%= b.title %><br>
+
+<% end %>
