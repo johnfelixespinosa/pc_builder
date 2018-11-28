@@ -1,6 +1,6 @@
 class BuildsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_list, only: [:show, :edit, :update, :destroy]
+  before_action :find_build, only: [:show, :edit, :update, :destroy]
   before_action :need_parts_list_to_build, only: [:new]
 
   def index_all
@@ -49,7 +49,7 @@ class BuildsController < ApplicationController
       if !current_user.has_parts?
         redirect_to user_parts_lists_path
       else
-        render 'new'
+        @build = current_user.builds.new
       end
     end
 
