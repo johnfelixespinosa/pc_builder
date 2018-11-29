@@ -21,11 +21,9 @@ class PartsListsController < ApplicationController
   def create
     @parts_list = current_user.parts_lists.build(parts_list_params)
     if @parts_list.save
-      flash[:success] = "Parts List Added!"
-      redirect_to user_parts_lists_path(current_user)
+      redirect_to(user_parts_lists_path(current_user), flash: { success: "Parts List Added!" })
     else
-      flash.now[:message] = "Please try again. There were some errors:"
-      render :new
+      redirect_to(new_user_parts_list_path(current_user), flash: { message: "Something went wrong, try again!" })
     end
   end
 
@@ -36,8 +34,7 @@ class PartsListsController < ApplicationController
     if @parts_list.user == current_user
       @parts_list.update(parts_list_params)
       if @parts_list.save
-        flash[:success] = "Your list #{@parts_list.name} was successfully updated!"
-        redirect_to user_parts_lists_path(current_user)
+        redirect_to(user_parts_lists_path(current_user), flash: { success: "Your list #{@parts_list.name} was successfully updated!" })
       else
         flash.now[:message] = "Please try again. There were some errors:"
         render :new

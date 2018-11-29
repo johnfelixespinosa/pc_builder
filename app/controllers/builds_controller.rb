@@ -18,15 +18,15 @@ class BuildsController < ApplicationController
   end
 
   def new
+    @build = Build.new
   end
 
   def create
-    @build = Build.new(build_params)
+    @build = current_user.builds.new(build_params)
     if @build.save
-      current_user.builds << @build
-      redirect_to user_builds_path(current_user)
-    else
-      render 'new'
+      redirect_to(user_builds_path(current_user), flash: { success: "Build Created!" })
+    else      
+      redirect_to(new_user_build_path(current_user), flash: { message: "Something went wrong, try again!" })
     end
   end
 

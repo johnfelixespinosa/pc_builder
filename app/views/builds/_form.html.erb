@@ -9,8 +9,12 @@
       <%= f.text_area :description, rows: 7, class: "form-control col-sm-9", prompt: "What do you use the machine for? What worked well? Any problems?" %>
     </div>
     <div class="form-group row">
+
+      
+
       <%= f.label :parts_list, class: "col-sm-3 col-form-label text-secondary" %>
-      <%= f.collection_select(:parts_list_id, current_user.parts_lists, :id, :name, class: "form-control col-sm-9", prompt: "Choose a parts list...") %>
+      <%= f.collection_select :parts_list_id, current_user.parts_lists, :id, :name, class: "form-control col-sm-9", prompt: "Choose a parts list..." %>
+      
     </div>
     <div class="form-group row">
       <%= f.label :images, class: "col-sm-3 col-form-label text-secondary" %>

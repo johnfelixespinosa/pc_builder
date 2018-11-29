@@ -1,0 +1,18 @@
+
+
+<h1 class="display-4 text-xs-center m-y-3 text-muted"><%= @build.user.username %> Build</h1>
+  
+  <div class="card">
+    
+      <div class="card bg-dark text-white">
+      <div class="card-header text-center">
+        <%= @build.title %>
+        
+      </div>
+        
+        
+      <div class="card-footer bg-transparent border-success text-center">Submitted by: <%= link_to @build.user.username, user_builds_path(@build.user) %></div>
+      </div>
+  
+  </div>
+  <br>    
