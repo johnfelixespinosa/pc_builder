@@ -1,7 +1,34 @@
 <nav class="navbar justify-content-end">
-    <h3 class="text-xs-center m-y-3 text-muted"><%= current_user.username.capitalize %> Build's</h3>    
+    <h3 class="text-xs-center m-y-3 text-muted"><%= @user.username.capitalize %> Parts List's</h3>    
+    <%= link_to "Parts Lists", new_user_parts_list_path(current_user), class: 'btn btn-success ml-auto mr-2 font-weight-bold' %>
+    <%= link_to "Start A New Build", new_user_build_path(current_user), class: 'btn btn-info mr-2 font-weight-bold' %>
 </nav>
-<% current_user.builds.each do |b| %>
-<%= link_to b.title, build_path(b) %><br>
 
+<% current_user.builds.each_slice(3) do |builds| %>       
+  <div class="card-deck ">
+    <% builds.each do |b| %>
+
+      <div class="card">
+      <%= link_to image_tag(b.images.first, class: "card-img"), build_path(b) %></img>
+        <div class="card-header text-center">
+          <h4 class="text-muted"><%= b.title %></h4> 
+          <div class="btn-group">                  
+            <%= link_to "Edit", edit_user_build_path(current_user, b), class: 'btn btn-primary active' %>
+            <%= link_to "Delete", b, method: :delete, data: { confirm: "Are you sure you want to delete?" }, class: 'btn btn-secondary btn-danger' %>                  
+          </div>
+        </div>
+        <div class="card-body">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <span class="badge badge badge-secondary">CPU</span>
+              <label><%= b.parts_list.cpu %></label>
+            </li>
+          </ul>
+        </div>
+        <div class="card-footer text-center">
+          <small class="text-muted">Last updated <%= b.created_at.to_date %></small>                
+        </div>
+      </div>
+    <% end %>
+  </div>
 <% end %>
