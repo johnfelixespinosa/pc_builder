@@ -7,5 +7,13 @@ class Build < ApplicationRecord
   validates :title,          presence: true
   validates :description,    presence: true
   validates :parts_list_id,  presence: true
+
+  def first_image
+    images.first
+  end
+  
+  def other_images
+    images.drop(1)
+  end
   
 end

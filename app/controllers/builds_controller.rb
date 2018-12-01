@@ -34,9 +34,28 @@ class BuildsController < ApplicationController
   end
 
   def update
+    if @build.user == current_user
+      @build.update(build_params)
+      if @build.save
+        redirect_to(user_builds_path(current_user), flash: { success: "Your Build #{@build.title} was successfully updated!" })
+      else
+        redirect_to(edit_user_build_path(current_user, @build), flash: { message: "Something went wrong, try again!" })
+      end
+    else
+      flash[:message] = "You don't have permission to do that"
+      redirect_to root_path
+    end
   end
 
   def destroy
+    if @build.user == current_user
+      @build.delete
+      flash[:success] = "Build deleted!"
+      redirect_to user_builds_path(current_user)
+    else
+      flash.now[:message] = "You don't have permision to do that!"
+      redirect_to root_path
+    end
   end
 
   private

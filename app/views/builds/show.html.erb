@@ -1,18 +1,24 @@
-
-
-<h1 class="display-4 text-xs-center m-y-3 text-muted"><%= @build.user.username %> Build</h1>
-  
-  <div class="card">
-    
-      <div class="card bg-dark text-white">
-      <div class="card-header text-center">
-        <%= @build.title %>
-        
-      </div>
-        
-        
-      <div class="card-footer bg-transparent border-success text-center">Submitted by: <%= link_to @build.user.username, user_builds_path(@build.user) %></div>
-      </div>
-  
+<div class="card text-center">
+  <div class="card-header">
+    <h1 class="name"><%= @build.title %></h1><br>
+    by <%= link_to @build.user.username.capitalize, user_path(@build.user) %>
   </div>
-  <br>    
+</div>
+<div class="card-group">
+  <div class="card col-sm-6">
+  <%= image_tag(@build.first_image, class: "card-img") %></img>
+  <div class="card-group">
+    <% @build.other_images.each do |image| %>
+      <div class="card">
+        <%= image_tag(image, class: "card-img") %>
+      </div>
+    <% end %>
+  </div>
+  </div>
+
+  <div class="card col-sm-6" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Description</h5>
+    <p class="card-text"><%= @build.description %></p>
+  </div>
+</div>
