@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index'
 
-  resources :parts_lists
+  resources :parts_lists, except: [:show]
 
   resources :builds, except: [:index] do
     get :index, on: :collection, :action => 'index_all'

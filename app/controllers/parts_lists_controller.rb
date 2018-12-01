@@ -1,6 +1,6 @@
 class PartsListsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_list, only: [:show, :edit, :update, :destroy]
+  before_action :find_list, only: [:edit, :update, :destroy]
 
   def index
     @user = User.find_by(id: params[:user_id])
@@ -9,9 +9,6 @@ class PartsListsController < ApplicationController
     else
       @parts_lists = PartsList.all
     end
-  end
-
-  def show
   end
 
   def new
@@ -36,8 +33,7 @@ class PartsListsController < ApplicationController
       if @parts_list.save
         redirect_to(user_parts_lists_path(current_user), flash: { success: "Your list #{@parts_list.name} was successfully updated!" })
       else
-        flash.now[:message] = "Please try again. There were some errors:"
-        render :new
+        redirect_to(new_user_parts_list_path(current_user), flash: { message: "Something went wrong, try again!" })
       end
     else
       flash[:message] = "You don't have permission to do that"
