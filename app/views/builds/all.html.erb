@@ -11,7 +11,7 @@
       <div class="card">
       <%= link_to image_tag(b.images.first, class: "card-img"), build_path(b) %></img>
         <div class="card-header text-center">
-          <h4 class="text-muted"><%= b.title %></h4> 
+          <h4 class="text-muted"><%= link_to b.title, build_path(b) %></h4> 
         </div>
         <div class="card-body">
           <ul class="list-group">
