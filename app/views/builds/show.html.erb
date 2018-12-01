@@ -7,14 +7,17 @@
 <div class="card-group">
   <div class="card col-sm-6">
   <%= image_tag(@build.first_image, class: "card-img") %></img>
-  <div class="card-group">
-    <% @build.other_images.each do |image| %>
-      <div class="card">
-        <%= image_tag(image, class: "card-img") %>
-      </div>
-    <% end %>
+    <div class="card">
+      <% @build.other_images.each_slice(2) do |two_images| %>
+        <div class="card-group">
+          <% two_images.each do |image| %>
+            <%= image_tag(image, class: "card card-img") %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  </div>
+  
 
   <div class="card col-sm-6" style="width: 18rem;">
   <div class="card-body">

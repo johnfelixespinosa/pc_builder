@@ -1,10 +1,10 @@
 <nav class="navbar justify-content-end">
     <h3 class="text-xs-center m-y-3 text-muted"><%= @user.username.capitalize %> Builds</h3>    
-    <%= link_to "Parts Lists", new_user_parts_list_path(current_user), class: 'btn btn-success ml-auto mr-2 font-weight-bold' %>
+    <%= link_to "Parts Lists", user_parts_lists_path(current_user), class: 'btn btn-success ml-auto mr-2 font-weight-bold' %>
     <%= link_to "Start A New Build", new_user_build_path(current_user), class: 'btn btn-info mr-2 font-weight-bold' %>
 </nav>
 
-<% current_user.builds.each_slice(3) do |builds| %>       
+<% current_user.builds.each_slice(2) do |builds| %>       
   <div class="card-deck ">
     <% builds.each do |b| %>
 
