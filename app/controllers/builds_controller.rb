@@ -7,6 +7,16 @@ class BuildsController < ApplicationController
     @builds = Build.all
     render :all
   end
+
+  def newest
+    @builds = Build.newest
+    render :all
+  end
+
+  def oldest
+    @builds = Build.oldest
+    render :all
+  end
   
   def index_builds
     @user = User.find_by(id: params[:user_id])

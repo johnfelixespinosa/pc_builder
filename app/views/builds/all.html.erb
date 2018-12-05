@@ -3,6 +3,11 @@
     <h3 class="text-xs-center m-y-3 text-muted">Completed Builds</h3>    
 </nav>
 
+  <strong>Sort by</strong><br>
+    <%= link_to "Newest", newest_path %> |
+    <%= link_to "Oldest", oldest_path %>
+  </div>
+
 <% @builds.each do |build| %>       
 
   <div class="card">

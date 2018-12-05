@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   resources :parts_lists, except: [:show]
 
+  get '/newest' => 'builds#newest', as: :newest
+  get '/oldest' => 'builds#oldest', as: :oldest
+
   resources :builds, except: [:index] do
     get :index, on: :collection, :action => 'index_all'
   end

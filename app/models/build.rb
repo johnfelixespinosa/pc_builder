@@ -15,5 +15,8 @@ class Build < ApplicationRecord
   def other_images
     images.drop(1)
   end
+
+  scope :newest, ->{ order("created_at DESC")}
+  scope :oldest, ->{ order("created_at ASC")}
   
 end
