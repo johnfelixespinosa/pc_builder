@@ -4,8 +4,8 @@
 </nav>
 
   <strong>Sort by</strong><br>
-    <%= link_to "Newest", newest_path %> |
-    <%= link_to "Oldest", oldest_path %>
+    <%= link_to "Newest", builds_path(search: "newest") %> |
+    <%= link_to "Oldest", builds_path(search: "oldest") %>
   </div>
 
 <% @builds.each do |build| %>       
