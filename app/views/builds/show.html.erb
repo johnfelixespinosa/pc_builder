@@ -16,11 +16,34 @@
         </div>
       <% end %>
     </div>
+
+    <ul class="list-group text-center">
+    <h5 class="list-title">Parts List</h5>      
+      <span class="badge-secondary">CPU</span>
+        <%= @build.parts_list.cpu %>
+      <span class="badge-secondary">Cooler</span>
+        <%= @build.parts_list.cpu_cooler %>
+      <span class="badge-secondary">MB</span>
+        <%= @build.parts_list.motherboard %>
+      <span class="badge-secondary">Storage</span>
+        <%= @build.parts_list.storage %>
+      <span class="badge-secondary">GPU</span>
+        <%= @build.parts_list.video_card %>
+      <span class="badge-secondary">Case</span>
+        <%= @build.parts_list.case %>
+      <span class="badge-secondary">PSU</span>
+        <%= @build.parts_list.power_supply %>
+      <span class="badge-secondary">OS</span>
+        <%= @build.parts_list.operating_system %>
+      <span class="badge-secondary">Monitor</span>
+        <%= @build.parts_list.monitor %>
+    </ul>    
   </div>
 
   <div class="card col-sm-6" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">Description</h5>
-    <p class="card-text"><%= @build.description %></p>
+    <p class="card-text"><%= @build.description %>
+  </div>
   </div>
 </div>
