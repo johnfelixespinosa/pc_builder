@@ -3,34 +3,34 @@
     <h3 class="text-xs-center m-y-3 text-muted">Completed Builds</h3>    
 </nav>
 
-<% @builds.each_slice(2) do |builds| %>       
-  <div class="card-deck ">
-    <% builds.each do |b| %>
+<% @builds.each do |build| %>       
+  
+    
 
       <div class="card">
-      <%= link_to image_tag(b.images.first, class: "card-img"), build_path(b) %></img>
+      <%= link_to image_tag(build.images.first, class: "card-img"), build_path(build) %></img>
         <div class="card-header text-center">
-          <h4 class="text-muted"><%= link_to b.title, build_path(b) %></h4> 
+          <h4 class="text-muted"><%= link_to build.title, build_path(build) %></h4> 
         </div>
         <div class="card-body">
           <ul class="list-group">
             <li class="list-group-item">
               <span class="badge badge badge-secondary">CPU</span>
-              <label><%= b.parts_list.cpu %></label>
-            </li>
-            <li class="list-group-item">
+              <label><%= build.parts_list.cpu %></label>
               <span class="badge badge badge-secondary">GPU</span>
-              <label><%= b.parts_list.video_card %></label>
+              <label><%= build.parts_list.video_card %></label>
             </li>
+
           </ul>
         </div>
         <div class="card-footer text-center">
-          <small class="text-muted">Last updated <%= b.created_at.to_date %> by 
-            <%= link_to b.user.username.capitalize, user_path(b.user) %>
+          <small class="text-muted">Last updated <%= build.created_at.to_date %> by 
+            <%= link_to build.user.username.capitalize, user_path(build.user) %>
           </small>                
         </div>
-      </div>
+      </div><br>
+      
     <% end %>
-  </div>
-<% end %>
+  
+
 </div>
