@@ -4,6 +4,9 @@ class Build < ApplicationRecord
 
   has_many_attached :images
 
+  has_many :likes
+  has_many :likers, through: :likes, source: :user
+
   validates :title,          presence: true
   validates :description,    presence: true
   validates :parts_list_id,  presence: true
