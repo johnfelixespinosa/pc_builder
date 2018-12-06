@@ -10,7 +10,7 @@ class LikesController < ApplicationController
  private
  
   def find_build
-    @build = Build.find_by_id(params[:id])
+    @build = Build.find_by(params[:id])
   end
 
 end

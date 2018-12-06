@@ -4,7 +4,7 @@ class Build < ApplicationRecord
 
   has_many_attached :images
 
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :likers, through: :likes, source: :user
 
   validates :title,          presence: true
