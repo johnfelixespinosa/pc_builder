@@ -41,6 +41,8 @@
   </div>
 
   <div class="card col-sm-6" style="width: 18rem;">
+  <div class="card-header">
+    <%= link_to "like", build_likes_path(@build), method: :post %>
   <div class="card-body">
     <h5 class="card-title">Description</h5>
     <p class="card-text"><%= @build.description %>
