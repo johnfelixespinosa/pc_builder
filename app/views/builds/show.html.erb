@@ -41,8 +41,12 @@
   </div>
 
   <div class="card col-sm-6" style="width: 18rem;">
-  <div class="card-header">
-    <%= link_to "like", build_likes_path(@build), method: :post %>
+  <div class="container likes">
+  <%# <button class="btn"><i class="fa fa-home"></i> Home</button> %>
+    <%= button_to build_likes_path(@build), method: :post, class: "btn btn-default" do %>
+       Like <i class="fa fa-heart"></i>
+    <% end %>
+  </div>
   <div class="card-body">
     <h5 class="card-title">Description</h5>
     <p class="card-text"><%= @build.description %>
