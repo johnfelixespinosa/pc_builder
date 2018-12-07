@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_build 
+  before_action :find_build
 
  def create
   if already_liked?
@@ -21,7 +21,7 @@ class LikesController < ApplicationController
  private
  
   def find_build
-    @build = Build.find_by(params[:id])
+    @build = Build.find(params[:build_id])
   end
 
   def already_liked?
