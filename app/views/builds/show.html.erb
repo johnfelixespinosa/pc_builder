@@ -41,17 +41,7 @@
   </div>
 
   <div class="card col-sm-6" style="width: 18rem;">
-  <div class="container text-center">
-    <% if @build.likers.exclude? current_user %>
-      <%= button_to build_user_like_path(@build, current_user), class: "btn btn-outline-danger" do %>
-      Like <i class="fa fa-heart"></i>
-      <% end %>
-    <% else %>
-      <%= button_to build_user_dislike_path(@build, current_user), method: :delete, class: "btn btn-outline-danger" do %>
-      Unlike <i class="fa fa-thumbs-down"></i>
-      <% end %>
-    <% end %>
-  </div>
+    <%= render 'like_unlike_button' %>
   <div class="card-body">
     <h5 class="card-title">Description</h5>
     <p class="card-text"><%= @build.description %>
