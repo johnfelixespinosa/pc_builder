@@ -16,8 +16,7 @@ class Build < ApplicationRecord
   end
   
   def other_images
-    # images.drop(images.first.id)
-    images.drop(1)
+    images.drop(images.first.id)
   end
   
   scope :most_liked, ->{ order("likes_count DESC")}
