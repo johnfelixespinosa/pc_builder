@@ -10,12 +10,12 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_builds, through: :likes, source: :build
 
-  def has_parts?
-    parts_lists.present?
+  def has_no_parts?
+    parts_lists.empty?
   end
 
-  def has_builds?
-    builds.present?
+  def has_no_builds?
+    builds.empty?
   end
-  
+
 end

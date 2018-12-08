@@ -1,11 +1,11 @@
 <div class="container">
 
-  <% if !current_user.has_parts? %>
+  <% if current_user.has_no_parts? %>
     <nav class="navbar justify-content-end">
       <h3 class="text-xs-center m-y-3 text-muted"><%= @user.username.capitalize %> Builds</h3>   
     </nav>
     <%= render 'parts_lists/jumbotron'%>
-  <% elsif !current_user.has_builds? %>
+  <% elsif current_user.has_no_builds? %>
     <nav class="navbar justify-content-end">
       <h3 class="text-xs-center m-y-3 text-muted"><%= @user.username.capitalize %> Builds</h3>   
     </nav>
