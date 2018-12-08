@@ -17,5 +17,4 @@ class User < ApplicationRecord
   def has_builds?
     !builds.empty?
   end
-
 end

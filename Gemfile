@@ -16,10 +16,12 @@ gem 'devise'
 gem 'jquery-rails'
 gem "bootstrap", ">= 4.1.2"
 gem "font-awesome-rails"
+gem 'hirb'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
+  gem 'pry'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 

@@ -4,24 +4,8 @@ class BuildsController < ApplicationController
   before_action :need_parts_list_to_build, only: [:new]
 
   def index_all
-    case params[:search]
-    when 'newest'
-      newest
-    when 'oldest'
-      oldest
-    else
-    @builds = Build.all
-    render :all
-    end
-  end
+    @builds = Build.send(params[:search])
 
-  def newest
-    @builds = Build.newest
-    render :all
-  end
-
-  def oldest
-    @builds = Build.oldest
     render :all
   end
   

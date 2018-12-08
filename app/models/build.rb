@@ -16,9 +16,11 @@ class Build < ApplicationRecord
   end
   
   def other_images
+    # images.drop(images.first.id)
     images.drop(1)
   end
-
+  
+  scope :most_liked, ->{ order("likes_count DESC")}
   scope :newest, ->{ order("created_at DESC")}
   scope :oldest, ->{ order("created_at ASC")}
   

@@ -5,7 +5,8 @@
 
   <strong>Sort by</strong><br>
     <%= link_to "Newest", builds_path(search: "newest") %> |
-    <%= link_to "Oldest", builds_path(search: "oldest") %>
+    <%= link_to "Oldest", builds_path(search: "oldest") %> |
+    <%= link_to "Most Liked", builds_path(search: "most_liked") %>
   </div>
 
 <% @builds.each do |build| %>       
@@ -14,7 +15,7 @@
   <%= link_to image_tag(build.images.first, class: "card-img"), build_path(build) %></img>
     <div class="card-header text-center">
       <h4 class="text-muted"><%= link_to build.title, build_path(build) %></h4>
-      <%= build.likers.count %> <i class="fa fa-heart"></i>
+      <%= build.likes_count %> <i class="fa fa-heart"></i>
     </div>
     <div class="card-body">
       <ul class="list-group">
