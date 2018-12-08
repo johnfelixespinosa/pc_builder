@@ -24,6 +24,10 @@
           <label><%= build.parts_list.cpu %></label>
           <span class="badge badge badge-secondary">GPU</span>
           <label><%= build.parts_list.video_card %></label>
+          <span class="badge badge badge-secondary">MB</span>
+          <label><%= build.parts_list.motherboard %></label>
+          <span class="badge badge badge-secondary">OS</span>
+          <label><%= build.parts_list.operating_system %></label>
           <span class="pull-right">
              <%= render 'like_unlike_button', build: build %>
           </span>
