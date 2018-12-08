@@ -11,10 +11,10 @@ class User < ApplicationRecord
   has_many :liked_builds, through: :likes, source: :build
 
   def has_parts?
-    !parts_lists.empty?
+    parts_lists.present?
   end
 
   def has_builds?
-    !builds.empty?
+    builds.present?
   end
 end
