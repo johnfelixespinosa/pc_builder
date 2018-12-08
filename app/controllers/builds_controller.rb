@@ -74,7 +74,7 @@ class BuildsController < ApplicationController
     end
 
     def need_parts_list_to_build
-      if !current_user.has_parts?
+      if current_user.has_no_parts?
         redirect_to user_parts_lists_path
       else
         @build = current_user.builds.new

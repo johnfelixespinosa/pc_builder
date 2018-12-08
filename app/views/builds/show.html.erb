@@ -42,7 +42,7 @@
 
   <div class="card col-sm-6" style="width: 18rem;">
   <div class="container text-center">
-    <% if !@build.likers.include? current_user %>
+    <% if @build.likers.exclude? current_user %>
       <%= button_to build_user_like_path(@build, current_user), class: "btn btn-outline-danger" do %>
       Like <i class="fa fa-heart"></i>
       <% end %>
