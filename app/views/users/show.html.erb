@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+	  <div class="col-md-3">
+		  <div class="list-group text-secondary">
+        <h1>User Profile</h1>
+        <h4><%= @user.username %></h4>
+        <h6># of Builds</h6>
+        <h6># of Parts Lists</h6>
+        <h6># of Comments</h6>
+        <h6>Account Created</h6>
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <nav class="navbar nav nav-tabs justify-content-left">
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Parts Lists</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Builds</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Liked Builds</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Comments</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
