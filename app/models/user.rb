@@ -17,4 +17,5 @@ class User < ApplicationRecord
   def has_builds?
     builds.present?
   end
+  
 end
