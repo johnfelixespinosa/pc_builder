@@ -41,7 +41,7 @@
   </div>
 
   <div class="card col-sm-6" style="width: 18rem;">
-    <%= render 'like_unlike_button' %>
+    <%= render 'like_unlike_button', build: @build %>
   <div class="card-body">
     <h5 class="card-title">Description</h5>
     <p class="card-text"><%= @build.description %>

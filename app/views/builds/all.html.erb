@@ -19,12 +19,14 @@
     </div>
     <div class="card-body">
       <ul class="list-group">
-        <li class="list-group-item">
+        <li class="list-group-item clearfix">
           <span class="badge badge badge-secondary">CPU</span>
           <label><%= build.parts_list.cpu %></label>
           <span class="badge badge badge-secondary">GPU</span>
           <label><%= build.parts_list.video_card %></label>
-        </li>
+          <span class="pull-right">
+             <%= render 'like_unlike_button', build: build %>
+          </span>
       </ul>
     </div>
     <div class="card-footer text-center">
