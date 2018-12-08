@@ -5,7 +5,6 @@ class BuildsController < ApplicationController
 
   def index_all
     @builds = Build.send(params[:search])
-
     render :all
   end
   
