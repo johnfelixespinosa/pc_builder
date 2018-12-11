@@ -16,6 +16,13 @@
 @import "bootstrap";
 @import "font-awesome";
 
+.container-fluid {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
 .fa-heart{
   color: red;
 }

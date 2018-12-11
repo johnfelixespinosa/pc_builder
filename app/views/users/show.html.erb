@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-	  <div class="col-md-3">
+	  <div class="col-md-2">
 		  <div class="list-group text-secondary">
         <h1>User Profile</h1>
         <h4><%= @user.username %></h4><br>
@@ -15,7 +15,23 @@
         <h5><%= @user.created_at.strftime("%b %d, %Y") %></h5>
       </div>
     </div>
-    <div class="col-sm-9">
+    <div class="column col-md-5">
+      <div class="list-group text-center">
+        <h4 class="list-group-item list-group-item-action active">Parts Lists</h4>
+          <% @user.parts_lists.each do |pl| %>
+            <li class="list-group-item"><%= pl.name %></li>
+          <% end %>        
+      </div>
+    </div>
+    <div class="column col-md-5">
+      <div class="list-group text-center">
+        <h4 class="list-group-item list-group-item-action active">Builds</h4>
+          <% @user.builds.each do |build| %>
+            <%= link_to build.title, user_build_path(@user, build), class: "list-group-item list-group-item-action" %>
+          <% end %>   
+      </div>
+    </div>
+    <%# <div class="col-sm-9">
       <nav class="navbar nav nav-tabs justify-content-left">
         <ul class="nav justify-content-end">
           <li class="nav-item">
@@ -31,7 +47,7 @@
             <a class="nav-link" href="#">Comments</a>
           </li>
         </ul>
-      </nav>
+      </nav> %>
     </div>
   </div>
 </div>
