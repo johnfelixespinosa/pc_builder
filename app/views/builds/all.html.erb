@@ -29,7 +29,9 @@
           <span class="badge badge badge-secondary">OS</span>
           <label><%= build.parts_list.operating_system %></label>
           <span class="pull-right">
+            <% if build.user != current_user %>
              <%= render 'like_unlike_button', build: build %>
+            <% end %>
           </span>
       </ul>
     </div>
