@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   end
 
   resources :builds do
+    resources :comments
+  end
+
+  resources :builds do
     resources :users do
       post "like",      to: "likes#create"
       delete "dislike", to: "likes#destroy"
