@@ -44,7 +44,20 @@
     <%= render 'like_unlike_button', build: @build %>
   <div class="card-body">
     <h5 class="card-title">Description</h5>
-    <p class="card-text"><%= @build.description %>
+      <p class="card-text"><%= @build.description %></p>
+    <h5 class="card-title">Comments</h5>
+    <div class="container-fluid">
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <% @build.comments.each do |comment| %>
+            <li class="list-group-item"><%= comment.body %><br>
+              <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago by 
+              <%= link_to comment.user.username.capitalize, user_path(comment.user) %></small>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>  
   </div>
   </div>
 </div>
