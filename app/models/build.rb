@@ -4,6 +4,8 @@ class Build < ApplicationRecord
 
   has_many_attached :images
 
+  has_many :comments, as: :commentable
+
   has_many :likes, dependent: :destroy
   has_many :likers, through: :likes, source: :user
 

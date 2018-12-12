@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :parts_lists
   has_many :builds
+  has_many :comments
 
   has_many :likes, dependent: :destroy
   has_many :liked_builds, through: :likes, source: :build
