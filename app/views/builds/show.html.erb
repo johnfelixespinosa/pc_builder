@@ -39,9 +39,11 @@
         <%= @build.parts_list.monitor %>
     </ul>    
   </div>
-
+  
   <div class="card col-sm-6" style="width: 18rem;">
+  <% if @build.user != current_user %>
     <%= render 'like_unlike_button', build: @build %>
+  <% end %>
   <div class="card-body">
     <h5 class="card-title">Description</h5>
       <p class="card-text"><%= @build.description %></p>
