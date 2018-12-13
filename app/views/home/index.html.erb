@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="card-group">
 
-    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+    <div class="card text-white bg-dark mb-3 col-md-4">
       <div class="card-body">
         <h2 class="card-title">Completed Builds</h2>
         <p class="card-text">Want some inspiration with your next PC build? See our users completed builds to see what parts they are using and get ideas for your own next build...</p>    
@@ -24,6 +24,29 @@
         <h6 class="card-text">by <%= link_to @featured.user.username, user_path(@featured.user) %></h6>     
         <p class="card-text"><%= @featured.description %></p>
         
+      </div>
+    </div>
+  </div>
+  <div class="card-group text-center">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Step 1</h5>
+        <i class="fa fa-user-circle"></i>
+        <p class="card-text">Create an account</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Step 2</h5>
+        <i class="fa fa-upload"></i>
+        <p class="card-text">Create a parts list</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Step 3</h5>
+        <i class="fa fa-television"></i>
+        <p class="card-text">Complete a build using a parts list</p>
       </div>
     </div>
   </div>
