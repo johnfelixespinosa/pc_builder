@@ -15,20 +15,42 @@
         <h5><%= @user.created_at.strftime("%b %d, %Y") %></h5>
       </div>
     </div>
-    <div class="column col-md-5">
-      <div class="list-group text-center">
-        <h4 class="list-group-item list-group-item-action active">Parts Lists</h4>
-          <% @user.parts_lists.each do |pl| %>
-            <li class="list-group-item"><%= pl.name %></li>
-          <% end %>        
+    <div class="column col-md-10">
+      <div class="row">
+        <div class="column col-md-6">
+          <div class="list-group text-center">
+            <h4 class="list-group-item list-group-item-action active">Parts Lists</h4>
+              <% @user.parts_lists.each do |pl| %>
+                <li class="list-group-item"><%= pl.name %></li>
+              <% end %>        
+          </div>
+        </div>
+        <div class="column col-md-6">
+          <div class="list-group text-center">
+            <h4 class="list-group-item list-group-item-action active">Builds</h4>
+              <% @user.builds.each do |build| %>
+                <%= link_to build.title, user_build_path(@user, build), class: "list-group-item list-group-item-action" %>
+              <% end %>   
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="column col-md-5">
-      <div class="list-group text-center">
-        <h4 class="list-group-item list-group-item-action active">Builds</h4>
-          <% @user.builds.each do |build| %>
-            <%= link_to build.title, user_build_path(@user, build), class: "list-group-item list-group-item-action" %>
-          <% end %>   
+      <div class="row">
+        <div class="column col-md container-fluid">
+          <div class="list-group text-center">
+            <h4 class="list-group-item list-group-item-action active">Liked Builds</h4>
+          </div>
+          <div class="card-deck container-fluid">
+            <% @user.liked_builds.each do |build| %>
+              <div class="card bg-dark text-white">
+                <%= image_tag(build.images.first, class: "card-img") %></img>
+                <div class="card-img-overlay">
+                  <h5 class="card-title"><%= build.title %></h5>
+                  <p class="card-text">by <%= build.user.username %></p>
+                </div>
+              </div>
+            <% end %>   
+          </div>
+        </div>
       </div>
     </div>
   </div>
