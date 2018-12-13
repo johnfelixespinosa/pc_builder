@@ -9,7 +9,7 @@
     <% builds.each do |b| %>
 
       <div class="card">
-      <%= link_to image_tag(b.images.first, class: "card-img"), build_path(b) %></img>
+      <%= link_to image_tag(b.images.first, class: "card-img"), build_path(b) %>
         <div class="card-header text-center">
           <h4 class="text-muted"><%= b.title %></h4> 
           <div class="btn-group">                  

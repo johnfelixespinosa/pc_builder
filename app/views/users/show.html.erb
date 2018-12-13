@@ -11,6 +11,8 @@
         <h4><%= @user.parts_lists.count %></h4>
         <h6>Comments</h6>
         <h4><%= @user.comments.count %></h4>
+        <h6>Liked Builds</h6>
+        <h4><%= @user.liked_builds.count %></h4>
         <h6>Member Since</h6>
         <h5><%= @user.created_at.strftime("%b %d, %Y") %></h5>
       </div>
@@ -38,18 +40,19 @@
         <div class="column col-md container-fluid">
           <div class="list-group text-center">
             <h4 class="list-group-item list-group-item-action active">Liked Builds</h4>
-          </div>
+          </div>     
+          
+          <% @user.liked_builds.each_slice(2) do |builds| %>
           <div class="card-deck container-fluid">
-            <% @user.liked_builds.each do |build| %>
-              <div class="card bg-dark text-white">
-                <%= image_tag(build.images.first, class: "card-img") %></img>
-                <div class="card-img-overlay">
-                  <h5 class="card-title"><%= build.title %></h5>
-                  <p class="card-text">by <%= build.user.username %></p>
-                </div>
+            <% builds.each do |build| %>
+              <div class="card bg-dark text-white text-center">
+                <%= link_to image_tag(build.images.first, class: "card-img"), build_path(build) %>
+                <h2 class="card-title"><%= build.title %></h2>
+                <p class="card-text">by <%= build.user.username %></p>
               </div>
-            <% end %>   
+            <% end %>
           </div>
+          <% end %>   
         </div>
       </div>
     </div>
