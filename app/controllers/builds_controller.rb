@@ -1,5 +1,5 @@
 class BuildsController < ApplicationController
-  before_action :authenticate_user!, except: [:index_all, :show]
+  before_action :authenticate_user!
   before_action :find_build, only: [:show, :edit, :update, :destroy]
   before_action :need_parts_list_to_build, only: [:new]
 
