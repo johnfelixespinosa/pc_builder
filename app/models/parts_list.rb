@@ -6,6 +6,7 @@ class PartsList < ApplicationRecord
   validates :cpu,              presence: true
   validates :cpu_cooler,       presence: true
   validates :motherboard,      presence: true
+  validates :ram,          presence: true
   validates :storage,          presence: true
   validates :video_card,       presence: true
   validates :case,             presence: true

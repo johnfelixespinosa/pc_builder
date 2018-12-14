@@ -23,7 +23,7 @@
         
         <h4 class="card-title"><%= link_to @featured.title, build_path(@featured) %></h4>
         <h6 class="card-text">by <%= link_to @featured.user.username, user_path(@featured.user) %></h6>     
-        <p class="card-text"><%= @featured.description %></p>
+        <p class="card-text"><%= @featured.description.first(400) + "..." %></p>
       <% end %>
       </div>
     </div>
