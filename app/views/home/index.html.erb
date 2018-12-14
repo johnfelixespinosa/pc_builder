@@ -8,7 +8,8 @@
         <%= link_to "View Builds", builds_path(search: "all"), class: 'btn btn-info mr-2 font-weight-bold' %>         
       </div>
     </div>
-
+    
+    <% if Build.any? %>
     <div class="card bg-light mb-3 text-white">
       <%= link_to image_tag(@featured.images.first, class: "card-img"), build_path(@featured) %>
       <div class="card-img-overlay">
@@ -23,7 +24,7 @@
         <h4 class="card-title"><%= link_to @featured.title, build_path(@featured) %></h4>
         <h6 class="card-text">by <%= link_to @featured.user.username, user_path(@featured.user) %></h6>     
         <p class="card-text"><%= @featured.description %></p>
-        
+      <% end %>
       </div>
     </div>
   </div>
