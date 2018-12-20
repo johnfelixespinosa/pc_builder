@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook]
 
-  has_many :parts_lists
-  has_many :builds
-  has_many :comments
+  has_many :parts_lists, dependent: :destroy
+  has_many :builds, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   has_many :likes, dependent: :destroy
   has_many :liked_builds, through: :likes, source: :build
