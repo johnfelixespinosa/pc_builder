@@ -19,6 +19,7 @@ gem "font-awesome-rails"
 gem 'hirb'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'dotenv-rails'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
