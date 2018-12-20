@@ -16,6 +16,13 @@
 @import "bootstrap";
 @import "font-awesome";
 
+body {
+  background-image: image-url('background.jpg');
+  background-repeat: repeat;
+  background-size: 10%;
+}
+
+
 .container-fluid {
   padding-left: 16px;
   padding-right: 16px;
