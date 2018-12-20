@@ -17,6 +17,8 @@ gem 'jquery-rails'
 gem "bootstrap", ">= 4.1.2"
 gem "font-awesome-rails"
 gem 'hirb'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
