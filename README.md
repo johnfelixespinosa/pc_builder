@@ -19,6 +19,6 @@
   This Rails application allows users to plan and create new computer builds. A user can create parts lists, which then allows them to create builds using those parts lists. A user can add images to their builds. There is support for liking and commenting on other users builds. A user can explore all the builds on the site and they can be sorted by newest, oldest, or most liked. 
 
 ### License
-  This project is being created open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+  This project is being created open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).  
   Background image photo by [Ami Nair](https://unsplash.com/@a_myth) on [Unsplash](https://unsplash.com)
   Photo by Amith Nair on Unsplash
