@@ -9,8 +9,7 @@
   - clone into local repository
   - run `bundle install`
   - `rake db:migrate`
-  - `rake db:seed`
-  - `shotgun` to start local server
+  - `rails s` to start local server
   - in browser visit http://localhost:3000/
   - signup can be achieved through facebook, or new account creation
 
