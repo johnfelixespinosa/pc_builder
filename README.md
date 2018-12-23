@@ -20,4 +20,3 @@
 ### License
   This project is being created open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).  
   Background image photo by [Ami Nair](https://unsplash.com/@a_myth) on [Unsplash](https://unsplash.com)
-  Photo by Amith Nair on Unsplash
