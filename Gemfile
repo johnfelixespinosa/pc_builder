@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.4.5'
-
+# ruby '2.4.5'
+ruby '2.3.3'
 gem 'rails', '~> 5.2.1'
 
 gem 'sqlite3'
@@ -21,10 +21,10 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
 
-  gem 'sqlite3', group: :development # Added development group.
-  gem 'pg', group: :production # Added postgres and made it production only.
-  gem 'rails_12factor'
-  
+  # gem 'sqlite3', group: :development # Added development group.
+  # gem 'pg', group: :production # Added postgres and made it production only.
+  # gem 'rails_12factor'
+
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
