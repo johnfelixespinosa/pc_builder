@@ -1,12 +1,14 @@
 class PartsListsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_list, only: [:edit, :update, :destroy]
+  before_action :find_user
 
   def index
     @user = User.find_by(id: params[:user_id])
     if params[:user_id]
       @parts_lists = User.find(params[:user_id]).parts_lists
     else
+      @user = current_user
       @parts_lists = PartsList.all
     end
   end
@@ -20,7 +22,9 @@ class PartsListsController < ApplicationController
     if @parts_list.save
       redirect_to(user_parts_lists_path(current_user), flash: { success: "Parts List Added!" })
     else
-      redirect_to(new_user_parts_list_path(current_user), flash: { message: "Something went wrong, try again!" })
+      
+      render "new" 
+      # redirect_to(new_user_parts_list_path(current_user), flash: { message: "Something went wrong, try again!" })
     end
   end
 
@@ -72,6 +76,10 @@ class PartsListsController < ApplicationController
 
     def find_list
       @parts_list = PartsList.find_by_id(params[:id])
+    end
+
+    def find_user
+      @user = current_user
     end
 
 end

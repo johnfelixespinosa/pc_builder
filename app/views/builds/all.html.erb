@@ -25,11 +25,20 @@
           <span class="badge badge badge-secondary">GPU</span>
           <label><%= build.parts_list.video_card %></label>
           <span class="badge badge badge-secondary">MB</span>
-          <label><%= build.parts_list.motherboard %></label>
+          <label><%= build.parts_list.motherboard %></label><br>
+<%
+=begin 
+%>
           <span class="badge badge badge-secondary">RAM</span>
           <label><%= build.parts_list.ram %></label>
           <span class="badge badge badge-secondary">OS</span>
           <label><%= build.parts_list.operating_system %></label>
+          <span class="badge badge badge-secondary">
+<% 
+=end 
+%>
+          <button class="js-more" type="pull-center" data-id="<%= build.parts_list.id %>">All parts...</button>
+          </span>
           <span class="pull-right">
             <% if build.user != current_user %>
              <%= render 'like_unlike_button', build: build %>

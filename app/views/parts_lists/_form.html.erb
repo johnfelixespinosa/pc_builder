@@ -1,4 +1,13 @@
 <%= form_for @parts_list do |f| %>
+
+    <% if @parts_list.errors.any? %>
+    <% @parts_list.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger text-center"> 
+        <%= message %>
+      </div>
+    <% end %>
+    <% end %>
+    
   <form class="form-horizontal">
     <div class="form-group row text-white">
       <%= f.label :name, class: "col-sm-3 col-form-label"%>
