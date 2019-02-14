@@ -20,6 +20,7 @@ gem 'hirb'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
+gem 'active_model_serializers'
 
   # gem 'sqlite3', group: :development # Added development group.
   # gem 'pg', group: :production # Added postgres and made it production only.
