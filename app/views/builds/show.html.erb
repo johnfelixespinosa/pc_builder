@@ -81,14 +81,3 @@
   </div>
   </div>
 </div>
-
-<script type="text/javascript" charset="utf-8">
-$(".js-more").on('click', function() {
-  var id = $(this).data("id");
-  $.get("/builds/" + id + ".json", function(data) {
-    // console.log("hello")
-    $("#body-" + id).html(data["description"]);
-    // console.log(data["description"])
-  });
-});
-</script>
