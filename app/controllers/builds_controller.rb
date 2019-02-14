@@ -5,7 +5,7 @@ class BuildsController < ApplicationController
 
   def index_all
     @builds = Build.send(params[:search])
-    # render :all
+    render :all
   end
   
   def index_builds
@@ -15,6 +15,10 @@ class BuildsController < ApplicationController
   end
 
   def show
+    respond_to do |f|
+      f.html { render :show }
+      f.json { render json: @build }
+    end
   end
 
   def new

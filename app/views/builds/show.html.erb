@@ -48,8 +48,10 @@
   <% end %>
   <div class="card-body">
     <h5 class="card-title">Description</h5>
-      <p class="card-text"><%= excerpt(@build.description, @build.description[0], radius: 65)%></p>
+
+      <p class="card-text" id="body-<%= @build.id %>"><%= excerpt(@build.description, @build.description[0], radius: 65)%></p>
       <button class="js-more" data-id="<%= @build.id %>">More...</button>
+      
     <h5 class="card-title">Comments</h5>
     <div class="container-fluid">
       <div class="card">
@@ -79,3 +81,14 @@
   </div>
   </div>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+$(".js-more").on('click', function() {
+  var id = $(this).data("id");
+  $.get("/builds/" + id + ".json", function(data) {
+    // console.log("hello")
+    $("#body-" + id).html(data["description"]);
+    // console.log(data["description"])
+  });
+});
+</script>
