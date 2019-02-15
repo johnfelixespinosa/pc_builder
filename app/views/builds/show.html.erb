@@ -56,13 +56,13 @@
       <div class="comments-container">
         <%= render 'comments/comments' %>
       </div>
-      <div class="new-comments-container">
+      <div class="new-comment-container">
         <% if @build.user != current_user %>
           <div class="container-fluid">
             <div class="card">
               <ul class="list-group list-group-flush">
                 <li class ="list-group-item">
-                  <%= render 'comments/form' %>
+                  <%= render 'comments/comments_form' %>
                 </li>
               </ul>  
             </div>

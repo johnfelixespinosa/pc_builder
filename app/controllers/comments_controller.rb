@@ -8,9 +8,16 @@ class CommentsController < ApplicationController
   def create
     @comment = @build.comments.build(comment_params)
     if @comment.save
-      redirect_to build_path(@build)
+      respond_to do |format|
+        format.html do
+          flash[:success] = 'Comment posted.'
+          redirect_to @build
+        end
+        format.js # JavaScript response
+      end
     else
       redirect_to root_path
+      flash[:error] = "Something went wrong"
     end
   end
 
