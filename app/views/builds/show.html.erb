@@ -51,21 +51,25 @@
 
       <p class="card-text" id="body-<%= @build.id %>"><%= excerpt(@build.description, @build.description[0], radius: 65)%></p>
       <button class="js-more" data-id="<%= @build.id %>">More...</button>
-      
-    <%= render 'comments/comments' %>
-    <% if @build.user != current_user %>
-      <div class="container-fluid">
-        <div class="card">
-          <ul class="list-group list-group-flush">
-            <li class ="list-group-item">
-              <%= render 'comments/form' %>
-            </li>
-          </ul>  
-        </div>
-      </div> 
-    <% end %>  
-
     
+    <section class="comments">
+      <div class="comments-container">
+        <%= render 'comments/comments' %>
+      </div>
+      <div class="new-comments-container">
+        <% if @build.user != current_user %>
+          <div class="container-fluid">
+            <div class="card">
+              <ul class="list-group list-group-flush">
+                <li class ="list-group-item">
+                  <%= render 'comments/form' %>
+                </li>
+              </ul>  
+            </div>
+          </div> 
+        <% end %>
+      </div>
+    </section>  
   </div>
   </div>
 </div>
