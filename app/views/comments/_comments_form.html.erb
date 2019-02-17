@@ -1,4 +1,4 @@
-<%= form_for [@build, Comment.new] do |f| %>
+<%= form_for [@build, Comment.new], remote: true do |f| %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.text_area :body, class: "form-control", placeholder: "Add a comment" %><br/>
   <%= f.submit "Submit", class: 'btn-primary btn' %>
