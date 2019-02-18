@@ -3,3 +3,9 @@
   <%= link_to comment.user.username.capitalize, user_path(comment.user) %></small>
 </li>
 
+<script id="comment-template" type="text/x-handlebars-template">
+  <li class="list-group-item">{{comment.body}}<br>
+    <small>{{comment.created_at}} by 
+    <a href="/users/{{comment.user_id}}">{{comment.user.username}}</a></small>
+  </li>
+</script>
