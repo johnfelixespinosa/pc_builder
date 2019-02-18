@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :find_build
+  # skip_before_action :verify_authenticity_token
 
   def index
     @comments = @build.comments.all
@@ -16,7 +17,7 @@ class CommentsController < ApplicationController
   def create
     @comment = @build.comments.build(comment_params)
     if @comment.save
-      redirect_to build_path(@build)
+      render json: @comment, status: 201
     else
       redirect_to root_path
     end
