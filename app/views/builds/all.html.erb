@@ -3,11 +3,7 @@
     <h3 class="text-xs-center m-y-3 text-white">Completed Builds</h3>    
 </nav>
 
-  <strong>Sort by</strong><br>
-    <%= link_to "Newest", builds_path(search: "newest") %> |
-    <%= link_to "Oldest", builds_path(search: "oldest") %> |
-    <%= link_to "Most Liked", builds_path(search: "most_liked") %>
-  </div>
+<%= render 'sort_by' %>
 
 <% @builds.each do |build| %>       
 

@@ -1,4 +1,5 @@
 console.log("js-more loaded")
+
 $(function(){
   $(".js-more").on('click', function(){
     var id = $(this).data("id");

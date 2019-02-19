@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   before_action :find_build
-  # skip_before_action :verify_authenticity_token
 
   def index
     @comments = @build.comments.all
