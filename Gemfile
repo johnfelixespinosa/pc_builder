@@ -4,13 +4,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # ruby '2.4.5'
 ruby '2.3.3'
 gem 'rails', '~> 5.2.1'
-
-gem 'sqlite3'
+gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
-gem 'turbolinks', '~> 5'
+#gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'jquery-rails'
@@ -21,7 +20,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem 'active_model_serializers'
-
+# gem 'sqlite3', '~> 1.3', '< 1.4'
   # gem 'sqlite3', group: :development # Added development group.
   # gem 'pg', group: :production # Added postgres and made it production only.
   # gem 'rails_12factor'
@@ -44,6 +43,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+  gem 'rspec-rails'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

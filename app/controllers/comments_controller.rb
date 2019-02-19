@@ -11,15 +11,15 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @comment = Comment.new
+    @comment = @build.comments.build(user_id: current_user.id)
   end
 
   def create
-    @comment = @build.comments.build(comment_params)
+    @comment = Comment.new(comment_params)
     if @comment.save
       render json: @comment, status: 201
     else
-      redirect_to root_path
+      render 'new'
     end
   end
 
@@ -32,7 +32,8 @@ class CommentsController < ApplicationController
     def comment_params
       params.require(:comment).permit(
         :body,
-        :user_id
+        :user_id,
+        :build_id
         )
     end
 

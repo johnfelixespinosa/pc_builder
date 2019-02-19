@@ -2,10 +2,11 @@ function Comment(attributes){
   this.body = attributes.body;
   this.created_at = attributes.created_at.slice(0,10);
   this.user_id = attributes.user_id;
+  this.build_id = attributes.build_id;
 }
 
 $(function(){
-  Comment.templateSource = $("comment-template").html()
+  Comment.templateSource = $("#comment-template").html()
   Comment.template = Handlebars.compile(Comment.templateSource);
 })
 
@@ -40,8 +41,3 @@ $(function(){
     })
   })
 })
-
-{/* <li class="list-group-item">try<br>
-  <small>Submitted 1 minute ago by 
-  <a href="/users/6">John espinosa</a></small>
-</li> */}
