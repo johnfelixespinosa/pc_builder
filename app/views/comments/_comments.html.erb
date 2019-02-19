@@ -1,11 +1,11 @@
 <li class="list-group-item"><%= comment.body %><br>
-  <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago by 
+  <small>Submitted <%= comment.created_at %> by 
   <%= link_to comment.user.username.capitalize, user_path(comment.user) %></small>
 </li>
 
 <script id="comment-template" type="text/x-handlebars-template">
   <li class="list-group-item">{{body}}<br>
-    <small>Submitted {{created_at.time_ago_in_words}} by 
+    <small>Submitted {{created_at}} by 
     <a href="/users/{{user_id}}">{{username}}</a></small>
   </li>
 </script>

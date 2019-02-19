@@ -1,21 +1,9 @@
-// $(function() {
-//   initPage();
-// });
-// $(window).bind('turbolinks:load', function() {
-//   initPage();
-// });
-// function initPage() {
-  
+console.log("js-more loaded")
 $(function(){
-  $(".js-more").on('click', function() {
+  $(".js-more").on('click', function(){
     var id = $(this).data("id");
-    $.get("/builds/" + id + ".json", function(data) {
-      //console.log("hello")
-      $("#body-" + id).html(data["description"]);
-      // console.log(data["description"])
+    $.get("/builds/" + id + ".json", function(data){      
+      $("#body-" + id).html(data["description"]);      
     });
   });
 });
-//}
-
-
