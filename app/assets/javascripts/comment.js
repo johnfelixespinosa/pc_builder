@@ -1,43 +1,44 @@
-function Comment(attributes){
-  this.body = attributes.body;
-  this.created_at = attributes.created_at.slice(0,10);
-  this.user_id = attributes.user_id;
-  this.build_id = attributes.build_id;
-}
+// function Comment(attributes){
+//   this.body = attributes.body;
+//   this.created_at = attributes.created_at.slice(0,10);
+//   this.user_id = attributes.user_id;
+//   this.username = attributes.user.username
+//   this.build_id = attributes.build_id;
+// }
 
-$(function(){
-  Comment.templateSource = $("#comment-template").html()
-  Comment.template = Handlebars.compile(Comment.templateSource);
-})
+// $(function(){
+//   Comment.templateSource = $("#comment-template").html()
+//   Comment.template = Handlebars.compile(Comment.templateSource);
+// })
 
-  // renderLi(){
-  //   return HandlebarsTemplates['comments-template']({comment: this})
-  // }
-Comment.prototype.renderLi = function(){
-  return Comment.template(this)
-}
+//   // renderLi(){
+//   //   return HandlebarsTemplates['comments-template']({comment: this})
+//   // }
+// Comment.prototype.renderLi = function(){
+//   return Comment.template(this)
+// }
 
 
-$(function(){
-  $("form#new_comment").on("submit", function(e){
-    e.preventDefault()
-    // console.log("Stop")
-    var $form = $(this);
-    var action = $form.attr("action")
-    var params = $form.serialize()
+// $(function(){
+//   $("form#new_comment").on("submit", function(e){
+//     e.preventDefault()
+//     // console.log("Stop")
+//     var $form = $(this);
+//     var action = $form.attr("action")
+//     var params = $form.serialize()
     
-    //console.log(params)
-    $.post(action, params)
-    .success(function(json){
-    console.log(json)
-    var comment = new Comment(json)
-    var commentLi = comment.renderLi()
+//     //console.log(params)
+//     $.post(action, params)
+//     .success(function(json){
+//     console.log(json)
+//     var comment = new Comment(json)
+//     var commentLi = comment.renderLi()
 
-    $("ul.list-group").append(commentLi)
+//     $("ul.list-group").append(commentLi)
       
-    })
-    .error(function(response){
-      console.log("broke", response)
-    })
-  })
-})
+//     })
+//     .error(function(response){
+//       console.log("broke", response)
+//     })
+//   })
+// })
