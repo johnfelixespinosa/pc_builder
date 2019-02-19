@@ -5,42 +5,6 @@
 
 <%= render 'sort_by' %>
 
-<% @builds.each do |build| %>       
+<%= render :partial => 'build_index_card', :collection => @builds, :as => 'build' %>
 
-  <div class="card">
-  <%= link_to image_tag(build.images.first, class: "card-img"), build_path(build) %></img>
-    <div class="card-header text-center">
-      <h4 class="text-muted"><%= link_to build.title, build_path(build) %></h4>
-      <%= build.likes_count %> <i class="fa fa-heart"></i>
-    </div>
-    <div class="card-body">
-      <ul class="list-group">
-        <li class="list-group-item clearfix">
-          <span class="badge badge badge-secondary">CPU</span>
-          <label><%= build.parts_list.cpu %></label>
-          <span class="badge badge badge-secondary">GPU</span>
-          <label><%= build.parts_list.video_card %></label>
-          <span class="badge badge badge-secondary">MB</span>
-          <label><%= build.parts_list.motherboard %></label>
-          <span class="badge badge badge-secondary">RAM</span>
-          <label><%= build.parts_list.ram %></label>
-          <span class="badge badge badge-secondary">OS</span>
-          <label><%= build.parts_list.operating_system %></label>
-          <span class="badge badge badge-secondary">
-          </span>
-          <span class="pull-right">
-            <% if build.user != current_user %>
-             <%= render 'like_unlike_button', build: build %>
-            <% end %>
-          </span>
-      </ul>
-    </div>
-    <div class="card-footer text-center">
-      <small class="text-muted">Last updated <%= build.created_at.to_date %> by 
-        <%= link_to build.user.username.capitalize, user_path(build.user) %>
-      </small>                
-    </div>
-  </div><br>
-
-<% end %>
 </div>

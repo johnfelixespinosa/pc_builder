@@ -36,7 +36,7 @@ $(function(){
     console.log("comment:", comment)
     console.log("commentLI:", commentLi)
 
-    $("ul.list-group").append(commentLi)
+    $("ul.comments-list").append(commentLi)
     });
 
   });

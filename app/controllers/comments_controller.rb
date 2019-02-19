@@ -1,17 +1,17 @@
 class CommentsController < ApplicationController
   before_action :find_build
 
-  def index
-    @comments = @build.comments.all
-    respond_to do |format|
-      format.html { render :index }
-      format.json { render json: @comments }
-    end
-  end
+  # def index
+  #   @comments = @build.comments.all
+  #   respond_to do |format|
+  #     format.html { render :index }
+  #     format.json { render json: @comments }
+  #   end
+  # end
 
-  def new
-    @comment = @build.comments.build(user_id: current_user.id)
-  end
+  # def new
+  #   @comment = @build.comments.build(user_id: current_user.id)
+  # end
 
   def create
     @comment = Comment.new(comment_params)
