@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :find_build
 
   def create
-    @comment = Comment.new(comment_params)
+    @comment = @build.comments.build(comment_params)
     if @comment.save
       render json: @comment, status: 201
     else
