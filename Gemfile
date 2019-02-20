@@ -20,6 +20,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem 'active_model_serializers'
+gem 'rails-ujs', '~> 0.1.0'
 # gem 'sqlite3', '~> 1.3', '< 1.4'
   # gem 'sqlite3', group: :development # Added development group.
   # gem 'pg', group: :production # Added postgres and made it production only.

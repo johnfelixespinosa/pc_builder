@@ -1,13 +1,6 @@
-<%= form_for [@build, Comment.new], remote: true do |f| %>
+<%= form_for [@build, Comment.new] do |f| %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.hidden_field :build_id, :value => @build.id %>
   <%= f.text_area :body, class: "form-control", placeholder: "Add a comment" %><br/>
   <%= f.submit "Submit", class: 'btn-primary btn' %>
 <% end %>
-
-<%# <form class="new_comment" id="new_comment" action="/builds/1/comments" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓">
-  <input value="3" type="hidden" name="comment[user_id]" id="comment_user_id">
-  <input value="1" type="hidden" name="comment[build_id]" id="comment_build_id">
-  <textarea class="form-control" placeholder="Add a comment" name="comment[body]" id="comment_body"></textarea><br>
-  <input type="submit" name="commit" value="Submit" class="btn-primary btn" data-disable-with="Submit">
-</form> %>

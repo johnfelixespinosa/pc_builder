@@ -18,12 +18,13 @@ Comment.prototype.renderLi = function(){
 }
 
 $(function(){
-  $("form#new_comment").on("submit", function(e){
+  $("#new_comment").on("submit", function(e){
     e.preventDefault()
     
     var $form = $(this);
     var action = $form.attr("action")
     var params = $form.serialize()
+    console.log("this:", this)
     console.log("action:", action)
     console.log("params:", params)
 
