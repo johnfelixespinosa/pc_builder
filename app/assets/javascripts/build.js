@@ -1,6 +1,8 @@
 console.log("js-more loaded")
 
 $(function(){
+  $('#new-comment-container').hide()
+  
   $(".js-more").on('click', function(){
     var id = $(this).data("id");
     $.get("/builds/" + id + ".json", function(data){      
@@ -8,13 +10,11 @@ $(function(){
     });
   });
 
-$('#new-comment-container').hide()
-
-$('.show-form').on('click', (e) =>{
-  e.preventDefault()
-  $('.show-form').hide()
-  $('#new-comment-container').slideDown('slow')
-})
-
+  $('.show-form').on('click', function(e){
+    e.preventDefault()
+    $('.show-form').hide()
+    $('#new-comment-container').slideDown('slow')
+  });
 });
+
 
