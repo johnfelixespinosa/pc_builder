@@ -9,13 +9,6 @@ $(function(){
   });
 
 $('#new-comment-container').hide()
-$('#list-comments-container').hide()
-
-$('.show-comments').on('click', function(e){
-  e.preventDefault()
-  $('.show-comments').hide()
-  $('#list-comments-container').slideDown('slow')
-})
 
 $('.show-form').on('click', (e) =>{
   e.preventDefault()
