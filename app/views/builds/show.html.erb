@@ -49,8 +49,8 @@
   <div class="card-body">
     <h5 class="card-title">Description</h5>
 
-      <p class="card-text" id="body-<%= @build.id %>"><%= excerpt(@build.description, @build.description[0], radius: 65)%></p>
-      <button class="js-more" data-id="<%= @build.id %>">More...</button>
+      <p class="card-text" id="body-<%= @build.id %>"><%= excerpt(@build.description, @build.description[0], radius: 65)%>
+      <button class="btn btn-secondary btn-sm js-more" data-id="<%= @build.id %>">More...</button></p>
     
     <section class="comments">
      
