@@ -7,15 +7,14 @@ class LikesController < ApplicationController
     flash[:message] = "Already Liked"
   else
    @build.likes.create(user_id: current_user.id)
-    flash[:success] = "Liked!"
+   
   end
-   redirect_to build_path(@build)
  end
 
   def destroy
   @user = current_user
   @build.likers.delete @user
-  redirect_to build_path(@build)
+  
   end
    
  private

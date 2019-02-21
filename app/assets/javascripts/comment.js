@@ -38,8 +38,8 @@ $(function(){
     console.log("commentLI:", commentLi)
 
     $("ul.comments-list").append(commentLi)
+    
     });
-
   });
 });
 
