@@ -1,7 +1,9 @@
-<li class="list-group-item"><%= comment.body %><br>
-  <small>Submitted <%= comment.created_at %> by 
-  <%= link_to comment.user.username.capitalize, user_path(comment.user) %></small>
-</li>
+<% @build.comments.each do |comment| %>
+  <li class="list-group-item"><%= comment.body %><br>
+    <small>Submitted <%= comment.created_at %> by 
+    <%= link_to comment.user.username.capitalize, user_path(comment.user) %></small>
+  </li>
+<% end %>
 
 <script id="comment-template" type="text/x-handlebars-template">
   <li class="list-group-item">{{body}}<br>
