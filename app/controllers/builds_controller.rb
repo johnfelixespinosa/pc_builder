@@ -11,9 +11,9 @@ class BuildsController < ApplicationController
   def index_builds
     @user = User.find_by(id: params[:user_id])
     @builds = Build.find_by(id: params[:id])
-    respond_to do |format|
-      format.html {render :index}
-      format.json {render json: @builds}
+    respond_to do |f|
+      f.html {render :index}
+      f.json {render json: @builds}
     end
   end
 

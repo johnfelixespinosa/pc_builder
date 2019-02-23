@@ -1,4 +1,4 @@
-console.log("show.js loaded")
+console.log("parts_list.js loaded")
 
 $(function(){
 

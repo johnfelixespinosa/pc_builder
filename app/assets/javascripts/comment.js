@@ -7,7 +7,6 @@ class Comment{
   this.username = attributes.user.username
   this.build_id = attributes.build_id;
   }
-
 }
 
 $(function(){
