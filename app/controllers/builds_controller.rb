@@ -11,7 +11,10 @@ class BuildsController < ApplicationController
   def index_builds
     @user = User.find_by(id: params[:user_id])
     @builds = Build.find_by(id: params[:id])
-    render :index
+    respond_to do |format|
+      format.html {render :index}
+      format.json {render json: @builds}
+    end
   end
 
   def show

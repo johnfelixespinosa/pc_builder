@@ -4,10 +4,3 @@
     <%= link_to comment.user.username.capitalize, user_path(comment.user) %></small>
   </li>
 <% end %>
-
-<script id="comment-template" type="text/x-handlebars-template">
-  <li class="list-group-item">{{body}}<br>
-    <small>Submitted {{created_at}} by 
-    <a href="/users/{{user_id}}">{{username}}</a></small>
-  </li>
-</script>

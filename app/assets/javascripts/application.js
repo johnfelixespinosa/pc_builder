@@ -13,5 +13,6 @@
 //= require jquery
 //= require rails-ujs
 //= require bootstrap
-//= require handlebars.min
+//= require handlebars
 //= require_tree .
+//= require_tree ./templates

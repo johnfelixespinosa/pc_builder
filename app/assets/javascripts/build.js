@@ -4,6 +4,7 @@ $(function(){
   $('#new-comment-container').hide()
   
   $(".js-more").on('click', function(){
+    console.log("clicked")
     var id = $(this).data("id");
     $.get("/builds/" + id + ".json", function(data){      
       $("#body-" + id).html(data["description"]);      
