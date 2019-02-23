@@ -7,6 +7,10 @@ class PartsListsController < ApplicationController
     @user = User.find_by(id: params[:user_id])
     if params[:user_id]
       @parts_lists = User.find(params[:user_id]).parts_lists
+      respond_to do |f|
+        f.html {render :index}
+        f.json {render json: @parts_lists}
+      end
     else
       @user = current_user
       @parts_lists = PartsList.all
