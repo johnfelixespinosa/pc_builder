@@ -1,26 +1,20 @@
 console.log("parts_list.js loaded")
 
 $(function(){ 
-  let id = parseInt($('#user').attr("data-user_id"))
-  console.log("id:", id)
+  var uid = parseInt($('#user').attr("data-user_id"))
+  console.log("id:", uid)
   
-  $.get("/users/" + id + "/parts_lists.json", function(data){
+  $.get("/users/" + uid + "/parts_lists.json", function(data){
   console.log("this:", this)
   console.log("data:", data)
 
-    // var data = $(this).data;
-    // console.log("id:", data)
+  for(var i = 0; i < data.length; i++) {
+    var d = data[i];
+    var url_id = parseInt($('#user').attr("data-user_id"))
+    var url = url_id + '/parts_lists/' + d.id
+    console.log('id: ' + url_id + ' name: ' + d.name + ' url: ' + url );
+    $(".list-group").append("<li class='list-group-item'><a href='"+ url +"'>"+d.name+"</a></li>")
+  };
 
-    // var url = this.url
-    // console.log("url:", url)
-    // var items = [];
-    // $.each( data, function( key, val ) {
-    //   items.push( "<li id='" + key + "'>" + val + "</li>" );
-    // });
-   
-    // $( "<ul/>", {
-    //   "class": "my-new-list",
-    //   html: items.join( "" )
-    // }).appendTo( "body" );
   });
 });
