@@ -13,6 +13,8 @@ class partsList{
   this.id = attributes.id;
   this.case = attributes.case;
   this.user = attributes.user.username;
+  this.userId = attributes.user.id;
+  this.created_at = attributes.created_at.slice(0,10);
   }
 }
 
