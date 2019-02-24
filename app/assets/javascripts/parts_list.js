@@ -13,7 +13,7 @@ $(function(){
     var url_id = parseInt($('#user').attr("data-user_id"))
     var url = url_id + '/parts_lists/' + d.id
     console.log('id: ' + url_id + ' name: ' + d.name + ' url: ' + url );
-    $(".list-group").append("<li class='list-group-item'><a href='"+ url +"'>"+d.name+"</a></li>")
+    $(".parts-lists").append("<li class='list-group-item'><a href='"+ url +"'>"+d.name+"</a></li>")
   };
 
   });

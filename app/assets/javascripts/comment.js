@@ -25,7 +25,7 @@ $(function(){
     console.log("json:", json)
     
     var comment = new Comment(json)
-    var new_comment_string = HandlebarsTemplates['comments/comments'](comment)
+    var new_comment_string = HandlebarsTemplates['comments/comment'](comment)
     console.log("comment:", comment)
     console.log("new_comment_string:", new_comment_string)
 
