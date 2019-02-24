@@ -1,11 +1,11 @@
 <li class="list-group-item">
   <div class="card">
     <div class="card-header text-center">
-      <h4 class="text-muted"><a href="/parts_lists/{{id}}">{{name}}</h4></a> 
-      {{!-- <div class="btn-group">                  
-        <%= link_to "Edit", edit_user_parts_list_path(current_user, pl), class: 'btn btn-primary active' %>
-        <%= link_to "Delete", pl, method: :delete, data: { confirm: "Are you sure you want to delete?" }, class: 'btn btn-secondary btn-danger' %>                  
-      </div> --}}
+      <h4 class="text-muted"><a href="/users/{{userId}}/parts_lists/{{id}}/edit">{{name}}</h4></a> 
+      <div class="btn-group">                  
+        <button class="btn btn-secondary btn-success"><a href="/users/{{userId}}/parts_lists/{{id}}/edit">Edit</button></a> 
+        <button class="btn btn-secondary btn-danger"><a href="/users/{{userId}}/parts_lists/{{id}}" data-method="delete">delete</button></a> 
+      </div>
     </div>
     <div class="card-body">
       <ul class="list-group">

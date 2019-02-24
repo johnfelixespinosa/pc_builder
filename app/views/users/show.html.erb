@@ -1,5 +1,3 @@
-<div id="user" data-user_id="<%=@user.id%>" />
-
 <div class="container-fluid">
   <div class="row">
 	  <div class="col-md-2">
@@ -33,7 +31,9 @@
         <div class="column col-md-6">
           <div class="list-group text-center">
             <h4 class="list-group-item list-group-item-action active">Builds</h4>
-              <button class="btn btn-secondary btn-sm show-builds">Show Builds</button>  
+              <% @user.builds.each do |build| %>
+                <%= link_to build.title, user_build_path(@user, build), class: "list-group-item list-group-item-action" %>
+              <% end %>   
           </div>
         </div>
       </div>

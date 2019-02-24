@@ -1,6 +1,6 @@
 class PartsList < ApplicationRecord
   belongs_to :user
-  has_many :builds, dependent: :destroy
+  has_many :builds
 
   validates :name,             presence: true
   validates :cpu,              presence: true

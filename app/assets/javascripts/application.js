@@ -14,5 +14,6 @@
 //= require rails-ujs
 //= require bootstrap
 //= require handlebars
+//= require jquery-readyselector
 //= require_tree .
 //= require_tree ./templates

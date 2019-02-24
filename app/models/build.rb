@@ -1,6 +1,6 @@
 class Build < ApplicationRecord
   belongs_to :user
-  belongs_to :parts_list
+  belongs_to :parts_list, dependent: :destroy
 
   has_many_attached :images
 
