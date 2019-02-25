@@ -19,6 +19,10 @@ $(".parts_lists").ready(function() {
     }
   }
 
+  partsList.prototype.toString = function() {
+    return HandlebarsTemplates['parts_lists/parts_list'](this)
+  };
+
   $(function(){ 
     var uid = parseInt($('#user').attr("data-user_id"))
     console.log("userId:", uid)
@@ -29,7 +33,7 @@ $(".parts_lists").ready(function() {
 
     data.forEach( parts_list => {
       var new_pl = new partsList(parts_list);
-      var new_pl_string = HandlebarsTemplates['parts_lists/parts_list'](new_pl)
+      var new_pl_string = new_pl.toString()
       $(".parts-lists").append(new_pl_string)
     });
     });

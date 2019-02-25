@@ -10,8 +10,12 @@ $(".comments").ready(function(){
     }
   }
 
+  Comment.prototype.toString = function() {
+    return HandlebarsTemplates['comments/comment'](this)
+  };
+
   $(function(){
-    $("#new_comment").on("submit", e => {
+    $("#new_comment").on("submit", function(e){
       e.preventDefault()
       
       var $form = $(this);
@@ -26,7 +30,7 @@ $(".comments").ready(function(){
       console.log("json:", json)
       
       var comment = new Comment(json)
-      var new_comment_string = HandlebarsTemplates['comments/comment'](comment)
+      var new_comment_string = comment.toString()
       console.log("comment:", comment)
       console.log("new_comment_string:", new_comment_string)
 
