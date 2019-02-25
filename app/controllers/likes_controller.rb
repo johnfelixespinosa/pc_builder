@@ -27,5 +27,4 @@ class LikesController < ApplicationController
     Like.where(user_id: current_user.id, build_id:
     params[:build_id]).exists?
   end
-
 end

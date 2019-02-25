@@ -11,7 +11,7 @@ $(".comments").ready(function(){
   }
 
   $(function(){
-    $("#new_comment").on("submit", function(e){
+    $("#new_comment").on("submit", e => {
       e.preventDefault()
       
       var $form = $(this);
@@ -22,7 +22,7 @@ $(".comments").ready(function(){
       console.log("params:", params)
 
       $.post(action, params)
-      .success(function(json){
+      .success( json => {
       console.log("json:", json)
       
       var comment = new Comment(json)

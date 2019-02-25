@@ -23,11 +23,11 @@ $(".parts_lists").ready(function() {
     var uid = parseInt($('#user').attr("data-user_id"))
     console.log("userId:", uid)
     
-    $.get("/users/" + uid + "/parts_lists.json", function(data){
+    $.get("/users/" + uid + "/parts_lists.json", data => {
     console.log("this:", this)
     console.log("data:", data)
 
-    data.forEach(function(parts_list) {
+    data.forEach( parts_list => {
       var new_pl = new partsList(parts_list);
       var new_pl_string = HandlebarsTemplates['parts_lists/parts_list'](new_pl)
       $(".parts-lists").append(new_pl_string)

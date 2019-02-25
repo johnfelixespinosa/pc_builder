@@ -85,5 +85,4 @@ class PartsListsController < ApplicationController
     def find_user
       @user = current_user
     end
-
 end

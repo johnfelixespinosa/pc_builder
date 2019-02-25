@@ -23,5 +23,4 @@ class CommentsController < ApplicationController
         :build_id
         )
     end
-
 end

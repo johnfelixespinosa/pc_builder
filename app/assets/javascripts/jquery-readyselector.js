@@ -1,4 +1,4 @@
-(function ($) {
+( $ => {
   console.log("selector.js loaded")
   var ready = $.fn.ready;
   $.fn.ready = function (fn) {
