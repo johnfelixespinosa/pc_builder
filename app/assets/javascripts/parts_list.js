@@ -26,30 +26,31 @@ $(".parts_lists").ready(function() {
   $(function(){ 
     var uid = parseInt($('#user').attr("data-user_id"))
     console.log("userId:", uid)
+    getData();
     
-    $.get("/users/" + uid + "/parts_lists.json", data => {
-    console.log("this:", this)
-    console.log("data:", data)
+    function getData(){
+      $.get("/users/" + uid + "/parts_lists.json", data => {
+        console.log("data:", data)
+        jsonData = data
+        makeLis(jsonData);
+      });
+    }  
 
-    data.forEach( parts_list => {
-      var new_pl = new partsList(parts_list);
-      var new_pl_string = new_pl.toString()
-      $(".parts-lists").append(new_pl_string)
-    });
-
-    $(".js-sort").on('click', function(){
-      data.sort((b,a) => (a.cpu < b.cpu) ? 1 : ((b.cpu < a.cpu) ? -1 : 0));
-      console.log(data)
-      $(".parts-lists").empty()
-      data.forEach( parts_list => {
+    function makeLis(jsonData) {
+      jsonData.forEach( parts_list => {
         var new_pl = new partsList(parts_list);
         var new_pl_string = new_pl.toString()
         $(".parts-lists").append(new_pl_string)
       });
-      
+    }
+
+    $(".js-sort").on('click', function(){
+      getData()
+      jsonData.sort((b,a) => (a.cpu < b.cpu) ? 1 : ((b.cpu < a.cpu) ? -1 : 0));
+      console.log("jsonData :", jsonData)
+      $(".parts-lists").empty()
+      makeLis(jsonData);
     });
 
-
-    });
   });
 });
