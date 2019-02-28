@@ -1,6 +1,9 @@
 # Rails Portfolio Project
 ## PC Builder
 
+### [Demo](https://jespnpcbuilderapp.herokuapp.com/)
+
+
   John Espinosa for Learn.co Fullstack Web Development Course
   ![Homepage Image]( app/assets/images/Screenshot1.png "Homepage")
 
