@@ -1,5 +1,7 @@
 {
   "name": "pc_builder",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "react": "^16.8.3"
+  }
 }

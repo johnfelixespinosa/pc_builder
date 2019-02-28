@@ -36,6 +36,20 @@ $(".parts_lists").ready(function() {
       var new_pl_string = new_pl.toString()
       $(".parts-lists").append(new_pl_string)
     });
+
+    $(".js-sort").on('click', function(){
+      data.sort((b,a) => (a.cpu < b.cpu) ? 1 : ((b.cpu < a.cpu) ? -1 : 0));
+      console.log(data)
+      $(".parts-lists").empty()
+      data.forEach( parts_list => {
+        var new_pl = new partsList(parts_list);
+        var new_pl_string = new_pl.toString()
+        $(".parts-lists").append(new_pl_string)
+      });
+      
+    });
+
+
     });
   });
 });

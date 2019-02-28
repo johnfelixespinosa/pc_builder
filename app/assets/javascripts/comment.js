@@ -10,6 +10,12 @@ $(".comments").ready(function(){
     }
   }
 
+  Comment.prototype.toLi = function(){
+    return `<li class="list-group-item">${this.body}<br>
+    <small>Submitted ${this.created_at} by 
+    <a href="/users/${this.user_id}">${this.username}</a></small>
+  </li>`
+  }
   Comment.prototype.toString = function() {
     return HandlebarsTemplates['comments/comment'](this)
   };
@@ -19,9 +25,10 @@ $(".comments").ready(function(){
       e.preventDefault()
       
       var $form = $(this);
-      var action = $form.attr("action")
+      var action = this.action
+      debugger
       var params = $form.serialize()
-      console.log("this:", this)
+      console.log("this:", this.action)
       console.log("action:", action)
       console.log("params:", params)
 
@@ -30,7 +37,7 @@ $(".comments").ready(function(){
       console.log("json:", json)
       
       var comment = new Comment(json)
-      var new_comment_string = comment.toString()
+      var new_comment_string = comment.toLi()
       console.log("comment:", comment)
       console.log("new_comment_string:", new_comment_string)
 

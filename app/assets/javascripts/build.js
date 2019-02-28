@@ -8,7 +8,14 @@ $(".builds").ready(function(){
       console.log("clicked")
       var id = $(this).data("id");
       $.get("/builds/" + id + ".json", data => {      
-        $("#body-" + id).html(data["description"]);      
+        $("#body-" + id).html(data["description"]);
+        // $('.list-comments-container'). 
+        console.log(data['comments'])
+        var commentsArray = data['comments']
+        commentsArray.forEach(function(comment){
+         
+         $("ul.comments-list").append(`<li>${comment['body']}</li>`)
+        })
       });
     });
 
