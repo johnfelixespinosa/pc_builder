@@ -46,8 +46,8 @@ $(function(){
   }
 
   $(".js-sort").on('click', function(){
-    jsonData.sort((b,a) => (a.cpu < b.cpu) ? 1 : ((b.cpu < a.cpu) ? -1 : 0));
-    console.log("jsonData :", jsonData)
+    // jsonData.sort((b,a) => (a.cpu < b.cpu) ? 1 : ((b.cpu < a.cpu) ? -1 : 0));
+    jsonData.sort((a,b) => a['cpu'].localeCompare(b['cpu']))
     makeLis(jsonData);
   });
 

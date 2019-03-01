@@ -3,7 +3,7 @@
     <%= link_to "Add New", new_user_parts_list_path(current_user), class: 'btn btn-success ml-auto mr-2 font-weight-bold' %>
     <%= link_to "Start A New Build", new_user_build_path(current_user), class: 'btn btn-info mr-2 font-weight-bold' %>
   <div class="js-sort">
-    <button class="btn btn-primary js-sort-new">Sort By CPU</button>
+    <button class="btn btn-primary js-sort" data-sort="cpu">Sort By CPU</button>
   </div>
 </nav>
 
