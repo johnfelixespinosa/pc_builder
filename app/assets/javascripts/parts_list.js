@@ -1,5 +1,5 @@
 console.log("parts_list.js loaded")
-class partsList{
+class PartsList{
   constructor(attributes){
   this.name = attributes.name;
   this.cpu = attributes.cpu;
@@ -18,7 +18,7 @@ class partsList{
   };
 };
 
-partsList.prototype.toString = function() {
+PartsList.prototype.toString = function() {
   return HandlebarsTemplates['parts_lists/parts_list'](this)
 };
 
@@ -39,15 +39,26 @@ $(function(){
   function makeLis(jsonData) {
     $(".parts-lists").empty()
     jsonData.forEach( parts_list => {
-      var new_pl = new partsList(parts_list);
+      var new_pl = new PartsList(parts_list);
       var new_pl_string = new_pl.toString()
       $(".parts-lists").append(new_pl_string)
     });
   }
-
+  
   $(".js-sort").on('click', function(){
     // jsonData.sort((b,a) => (a.cpu < b.cpu) ? 1 : ((b.cpu < a.cpu) ? -1 : 0));
-    jsonData.sort((a,b) => a['cpu'].localeCompare(b['cpu']))
+    // jsonData.sort(a,b){
+    //   if 
+    // }
+    //[1,2,3].map(num => {num**2})
+    jsonData.sort((a,b) => {
+      var cpuCompare = a['cpu'].localeCompare(b['cpu'])
+      if (cpuCompare == 0) {
+        return a['name'].localeCompare(b['name'])
+      } 
+        return cpuCompare
+    
+    });
     makeLis(jsonData);
   });
 
