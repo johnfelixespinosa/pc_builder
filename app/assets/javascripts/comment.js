@@ -37,11 +37,11 @@ $(".comments").ready(function(){
       console.log("json:", json)
       
       var comment = new Comment(json)
-      var new_comment_string = comment.toLi()
+      var newCommentString = comment.toLi()
       console.log("comment:", comment)
-      console.log("new_comment_string:", new_comment_string)
+      console.log("new_comment_string:", newCommentString)
 
-      $("ul.comments-list").append(new_comment_string)
+      $("ul.comments-list").append(newCommentString)
       
       });
     });
